@@ -5,15 +5,13 @@ import useStyles from "./styles";
 import { Typography } from "@material-ui/core";
 import wordsToNumbers from "words-to-numbers";
 
-const alanKey =
-  "4556229bedf0b6905453bb1e217c43372e956eca572e1d8b807a3e2338fdd0dc/stage";
 function App() {
   const [newsArticles, setNewsArticles] = useState([]);
   const [activeArticle, setActiveArticle] = useState();
   const classes = useStyles();
   useEffect(() => {
     alanBtn({
-      key: alanKey,
+      key: process.env.REACT_APP_ALAN_KEY,
       onCommand: ({ command, articles, number }) => {
         if (command === "newHeadlines") {
           setNewsArticles(articles);
