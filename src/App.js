@@ -34,6 +34,17 @@ function App() {
         }
       },
     });
+    
+    let response = await fetch("https://staging.viot.portal.graphicx.io/api/v1/oauth/token/",{
+      method:"POST",
+      body: JSON.stringify({username:"user",password:"123",grant_type:"password"}),
+      headers:new Headers({
+        "Access-Control-Allow-Origin":"https://fervent-ritchie-a3da89.netlify.app/",
+        "Authorization":"Basic cF92b2RfcG9ydGFsX2NsaWVudDpkM2tYam9ZWE1FM0xJa3ZkdVNqVmJ3eEN6ckh4dV8=",
+        "X-TenantID":"p_vod",
+        "Content-type":"application/x-www-form-urlencoded"
+      })
+    })
   }, []);
   return (
     <div>
